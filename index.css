@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+:root{
+  /* Primary */
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: hsl(0, 93%, 68%);
+  /* Neutral */
+  --dark-grayish-red: hsl(0, 6%, 24%);
+  /* Gradients */
+  --bg-body-gradient: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --bg-search-btn-gradient: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+input,
+button {
+  font: inherit;
+  color: inherit;
+}
+body{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: var(--bg-body-gradient) no-repeat;
+  color: var(--desaturated-red);
+  min-height: 100vh;
+}
+.desktop {
+  display: none;
+}
+.flex-grid-toggle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logo{
+  align-self: flex-start;
+  padding: 1.5rem 2rem;
+}
+.page-body{
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.page-body .title {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 2.5rem;
+}
+.title .we-are {
+  font-weight: 300;
+}
+.title .coming-soon {
+  color: var(--dark-grayish-red);
+}
+.page-body p {
+  padding: 1.25rem 0;
+  line-height: 1.5em;
+}
+.email-form {
+  padding: .75rem 0;
+}
+.email-input {
+  background: transparent;
+  border-radius: 25px;
+  border: var(--desaturated-red) 1px solid;
+  padding-inline: 1.5rem 5rem;
+  height: 3.25em;
+  width: 100%;
+  outline: none;
+}
+.email-input::placeholder {
+  color: inherit;
+}
+.send-email-btn {
+  background: var(--bg-search-btn-gradient);
+  border-radius: 25px;
+  border: none;
+  height: 3.25em;
+  width: 4.25em;
+  position: absolute;
+  transform: translateX(-4.25em);
+  cursor: pointer;
+  box-shadow: 0px 5px 10px hsl(0, 80%, 86%);
+}
+
+/* error msg display */
+.error-msg[visibility='hidden'] {
+  display: none;
+}
+.error-msg[visibility='visible'] {
+  display: block;
+}
+
+@media (min-width:700px){
+  body {
+    background: url(./images/bg-pattern-desktop.svg) no-repeat;
+  }
+  .mobile {
+    display: none;
+  }
+  .desktop{
+    display: block;
+  }
+  .flex-grid-toggle{
+    display: grid;
+    grid-template-columns: 60% 1fr;
+    align-items: flex-start;
+  }
+  .logo {
+    padding-left: 4rem;
+  }
+  .page-body {
+    text-align: left;
+    padding: 2rem 4rem;
+  }
+  .page-body .title{
+    font-size: 3rem;
+  }
+  .image-container {
+    grid-row: span 2;
+  }
+  .image {
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+@media (min-width:1025px){
+  .logo{
+    padding: 3rem 8rem;
+  }
+  .page-body{
+    padding: 2rem 8rem;
+    max-width: 700px;
+  }
+  .page-body .title{
+    font-size: 3.5rem;
+  }
+  .email-input{
+    padding-inline-end: 6.5em;
+  }
+  .send-email-btn {
+    width: 5.5em;
+    transform: translateX(-5.5em);
+  }
+}
